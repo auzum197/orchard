@@ -27,6 +27,9 @@ use alloc::vec::Vec;
 
 mod action;
 mod address;
+#[cfg(feature = "address-signatures")]
+#[cfg_attr(docsrs, doc(cfg(feature = "address-signatures")))]
+pub mod address_signature;
 pub mod builder;
 pub mod bundle;
 #[cfg(feature = "circuit")]

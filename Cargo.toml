@@ -52,6 +52,7 @@ zip32 = { version = "0.3", default-features = false }
 subtle = { version = "2.6", default-features = false }
 
 # Encodings
+base64 = { version = "0.22", default-features = false, features = ["alloc"], optional = true }
 hex = { version = "0.4", default-features = false, features = ["alloc"] }
 serde = { version = "1.0", default-features = false, features = ["derive"] }
 
@@ -98,6 +99,9 @@ std = ["corez/std", "group/wnaf-memuse", "reddsa/std"]
 circuit = ["dep:halo2_gadgets", "dep:halo2_proofs", "dep:tracing", "std"]
 unstable-frost = []
 unstable-voting-circuits = []
+# Off-chain Orchard address signatures: spend authority (needs `circuit`) and
+# receive authority.
+address-signatures = ["dep:base64", "zeroize"]
 multicore = ["halo2_proofs?/multicore"]
 dev-graph = ["halo2_proofs?/dev-graph", "image", "plotters"]
 verifier-fingerprint = ["circuit", "halo2_proofs/unstable-verifier-fingerprint"]
