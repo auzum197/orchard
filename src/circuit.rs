@@ -60,6 +60,8 @@ use halo2_gadgets::{
     utilities::lookup_range_check::{LookupRangeCheck, LookupRangeCheckConfig},
 };
 
+#[cfg(feature = "address-signatures")]
+pub(crate) mod address_signature;
 #[cfg(not(feature = "unstable-voting-circuits"))]
 mod commit_ivk;
 #[cfg(feature = "unstable-voting-circuits")]

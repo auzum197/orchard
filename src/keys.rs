@@ -712,6 +712,14 @@ impl IncomingViewingKey {
 }
 
 impl IncomingViewingKey {
+    /// Returns $\mathsf{ivk}$ as a scalar, for receive-authority signatures.
+    #[cfg(feature = "address-signatures")]
+    pub(crate) fn key_agreement_scalar(&self) -> &NonZeroPallasScalar {
+        &self.ivk.0
+    }
+}
+
+impl IncomingViewingKey {
     /// Serializes an Orchard incoming viewing key to its raw encoding as specified in [Zcash Protocol Spec § 5.6.4.3: Orchard Raw Incoming Viewing Keys][orchardrawinviewingkeys]
     ///
     /// [orchardrawinviewingkeys]: https://zips.z.cash/protocol/protocol.pdf#orchardinviewingkeyencoding

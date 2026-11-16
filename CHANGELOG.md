@@ -7,6 +7,19 @@ and this project adheres to Rust's notion of
 
 ## [Unreleased]
 
+### Added
+- `address-signatures` feature flag (not enabled by default), which enables the
+  `base64` dependency and the `zeroize` feature, and provides:
+  - `orchard::address_signature`, with off-chain signatures that bind a message
+    to an Orchard address:
+    - `orchard::address_signature::CoinType`
+    - `orchard::address_signature::receive_authority`, a Schnorr signature that
+      proves knowledge of the incoming viewing key of the address.
+    - `orchard::address_signature::spend_authority` (requires the `circuit`
+      feature), a Halo 2 proof and a RedPallas signature that prove control of
+      the spend authority of the address. Its circuit is new constraint code
+      that has had no independent audit.
+
 ## [0.16.0] - 2026-09-29
 
 ### Added
